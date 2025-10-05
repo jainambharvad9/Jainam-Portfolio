@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jainam Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="dark-mode">
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <div class="glass-container">
+        <header class="glass-effect">
+            <div class="logo animate">
+                <span>JS</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="animate" style="animation-delay: 0.1s"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="animate" style="animation-delay: 0.2s"><a href="{% url 'resume' %}">Resume</a></li>
+                    <li class="animate" style="animation-delay: 0.3s"><a href="{% url 'profile' %}">Profile</a></li>
+                    <li class="animate" style="animation-delay: 0.4s"><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+        <footer class="glass-effect">
+            <p>&copy; {% now "Y" %} Jainam Saraiya. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/jainambharvad9" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jainam-bharvad" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/jainamsaraiya" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+    
+    <script src="{% static 'js/animations.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

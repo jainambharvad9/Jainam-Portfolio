@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Resume | Your Portfolio{% endblock %}
+
+{% block content %}
+<section class="resume-header glass-effect animate">
+    <h1>Resume</h1>
+    <div class="resume-actions">
+        <a href="{% static "Jainam_Saraiya_resume.pdf" %}" class="btn btn-primary" download ><i class="fas fa-download"></i> Download PDF</a>
+    </div>
+</section>
+
+<section class="resume-section glass-effect animate">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="timeline">
+        <div class="timeline-item animate">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Master of Computer Applications (MCA)</h3>
+                <h4>L.J. University, Ahmedabad</h4>
+                <p class="timeline-date">Expected Graduation: 2026</p>
+                <p>Pursuing advanced studies in computer applications with specialization in full-stack development and modern web technologies.</p>
+            </div>
+        </div>
+        <div class="timeline-item animate">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+                <h4>C.U. Shah College, Surendra-Nagar</h4>
+                <p class="timeline-date">CGPA: 7.4 | Graduation: March 2024</p>
+                <p>Completed comprehensive undergraduate program covering programming fundamentals, database management, and software development.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} <section class="resume-section glass-effect animate">
+    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item animate">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Job Title</h3>
+                <h4>Company Name</h4>
+                <p class="timeline-date">2020 - Present</p>
+                <ul>
+                    <li>Accomplishment or responsibility</li>
+                    <li>Accomplishment or responsibility</li>
+                    <li>Accomplishment or responsibility</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item animate">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Previous Job Title</h3>
+                <h4>Previous Company</h4>
+                <p class="timeline-date">2018 - 2020</p>
+                <ul>
+                    <li>Accomplishment or responsibility</li>
+                    <li>Accomplishment or responsibility</li>
+                    <li>Accomplishment or responsibility</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
+
+<section class="resume-section glass-effect animate">
+    <h2><i class="fas fa-code"></i> Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category animate">
+            <h3>Languages</h3>
+            <div class="skill-bars">
+                <div class="skill-bar">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">PHP</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">HTML/CSS</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-category animate">
+            <h3>Frameworks</h3>
+            <div class="skill-bars">
+                <div class="skill-bar">
+                    <div class="skill-name">Django</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">Laravel</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">ASP.NET</div>
+                    <div class="skill-progress">
+                        <div class="skill-percentage" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home | Your
+Portfolio{% endblock %} {% block content %}
+<section class="hero glass-effect animate">
+  <div class="hero-content">
+    <h1 class="animate-text">
+      Hello, I'm <span class="highlight">Jainam Saraiya</span>
+    </h1>
+    <h2 class="animate-text">Full Stack Developer</h2>
+    <p class="animate-text">
+      I create beautiful, functional, and responsive web applications with
+      modern technologies.
+    </p>
+    <div class="cta-buttons">
+      <a href="{% url 'contact' %}" class="btn btn-primary animate"
+        >Contact Me</a
+      >
+      <a href="{% url 'resume' %}" class="btn btn-secondary animate"
+        >View Resume</a
+      >
+    </div>
+  </div>
+  <div class="hero-image animate">
+    <img
+      src="{% static 'images/profile-photo.jpg' %}"
+      alt="Your Profile Photo"
+      class="profile-image"
+    />
+  </div>
+</section>
+
+<section class="skills-section glass-effect animate">
+  <h2>My Skills</h2>
+  <div class="skills-container">
+    <div class="skill-card animate">
+      <i class="fas fa-code"></i>
+      <h3>Frontend</h3>
+      <p>HTML, CSS, JavaScript, React</p>
+    </div>
+    <div class="skill-card animate">
+      <i class="fas fa-server"></i>
+      <h3>Backend</h3>
+      <p>Python, Django, Node.js</p>
+    </div>
+    <div class="skill-card animate">
+      <i class="fas fa-database"></i>
+      <h3>Database</h3>
+      <p>SQL, MongoDB, PostgreSQL</p>
+    </div>
+    <div class="skill-card animate">
+      <i class="fas fa-tools"></i>
+      <h3>Tools</h3>
+      <p>Git, Docker, AWS</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .project-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .project-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+  }
+  .project-card {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .projects-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .project-image img {
+      aspect-ratio: 16/10;
+    }
+    .project-card {
+      min-height: 350px;
+      padding: 1rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .projects-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .project-image img {
+      aspect-ratio: 16/12;
+    }
+    .project-card {
+      min-height: 280px;
+      padding: 0.75rem;
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<section class="projects-section glass-effect animate">
+  <h2>Featured Projects</h2>
+  <div class="projects-container">
+    {% for project in projects %}
+    <div class="project-card animate">
+      {% if project.image %}
+      <div class="project-image">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+      </div>
+      {% else %}
+      <div class="project-image"></div>
+      {% endif %}
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+      <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+      <div class="project-links">
+        {% if project.link %}
+        <a href="{{ project.link }}" class="btn btn-sm" target="_blank"
+          >View Project</a
+        >
+        {% endif %}
+      </div>
+    </div>
+    {% empty %}
+    <p>No projects found.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

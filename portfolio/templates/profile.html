@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile | Your Portfolio{% endblock %}
+
+{% block content %}
+<section class="profile-header glass-effect animate">
+    <!-- Replace this: -->
+    {% comment %} <div class="profile-image-container">
+        <div class="profile-image-placeholder">
+            <span>Your Photo Here</span>
+        </div>
+    </div> {% endcomment %}
+    
+    <!-- With this: -->
+    <div class="profile-image-container">
+        <img src="{% static 'images/profile-photo.jpg' %}" alt="Your Profile Photo" class="profile-image">
+    </div>
+    <div class="profile-intro">
+        <h1>About Me</h1>
+        <p>I am a passionate full-stack developer with expertise in building modern web applications. With a strong foundation in both frontend and backend technologies, I create seamless, user-friendly experiences that solve real-world problems.</p>
+    </div>
+</section>
+
+<section class="tech-stack glass-effect animate">
+    <h2>My Tech Stack</h2>
+    <div class="tech-categories">
+        <div class="tech-category animate">
+            <h3>Languages</h3>
+            <div class="tech-pills">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">HTML</span>
+                <span class="tech-pill">CSS</span>
+                <span class="tech-pill">SQL</span>
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">C++</span>
+            </div>
+        </div>
+        
+        <div class="tech-category animate">
+            <h3>Frontend</h3>
+            <div class="tech-pills">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Vue.js</span>
+                <span class="tech-pill">Angular</span>
+                <span class="tech-pill">Bootstrap</span>
+                <span class="tech-pill">Tailwind CSS</span>
+                <span class="tech-pill">SASS</span>
+            </div>
+        </div>
+        
+        <div class="tech-category animate">
+            <h3>Backend</h3>
+            <div class="tech-pills">
+                <span class="tech-pill">Django</span>
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Express</span>
+                <span class="tech-pill">Spring Boot</span>
+                <span class="tech-pill">RESTful APIs</span>
+            </div>
+        </div>
+        
+        <div class="tech-category animate">
+            <h3>Databases</h3>
+            <div class="tech-pills">
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">MongoDB</span>
+                <span class="tech-pill">Redis</span>
+                <span class="tech-pill">Firebase</span>
+            </div>
+        </div>
+        
+        <div class="tech-category animate">
+            <h3>DevOps & Tools</h3>
+            <div class="tech-pills">
+                <span class="tech-pill">Git</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">AWS</span>
+                <span class="tech-pill">CI/CD</span>
+                <span class="tech-pill">Jira</span>
+                <span class="tech-pill">Agile</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="interests glass-effect animate">
+    <h2>Interests & Hobbies</h2>
+    <div class="interests-grid">
+        <div class="interest-card animate">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Open Source</h3>
+            <p>Contributing to open source projects and learning from the community.</p>
+        </div>
+        <div class="interest-card animate">
+            <i class="fas fa-book"></i>
+            <h3>Reading</h3>
+            <p>Technical books and sci-fi novels.</p>
+        </div>
+        <div class="interest-card animate">
+            <i class="fas fa-hiking"></i>
+            <h3>Hiking</h3>
+            <p>Exploring nature trails and mountains.</p>
+        </div>
+        <div class="interest-card animate">
+            <i class="fas fa-gamepad"></i>
+            <h3>Gaming</h3>
+            <p>Strategy games and RPGs.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

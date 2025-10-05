@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact | Jainam Saraiya Portfolio{% endblock %}
+
+{% block content %}
+<section class="contact-header glass-effect animate">
+    <h1>Get In Touch</h1>
+    <p>Have a question or want to work together? Feel free to contact me!</p>
+</section>
+
+<div class="contact-container">
+    <section class="contact-form-section glass-effect animate">
+        <h2><i class="fas fa-envelope"></i> Send Me a Message</h2>
+        <form class="contact-form" action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group animate">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group animate">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group animate">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group animate">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary animate">Send Message</button>
+        </form>
+    </section>
+
+    <section class="contact-info glass-effect animate">
+        <h2><i class="fas fa-address-card"></i> Contact Information</h2>
+        <div class="contact-details">
+            <div class="contact-item animate">
+                <i class="fas fa-user"></i>
+                <div>
+                    <h3>Name</h3>
+                    <p>JAINAM SARAIYA</p>
+                </div>
+            </div>
+            <div class="contact-item animate">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>
+                        <a href="mailto:jainamsaraiya9@gmail.com" style="text-decoration: none; color: inherit;" >jainamsaraiya9@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="contact-item animate">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h3>Phone</h3>
+                    <p>
+                        <a href="tel:+919998173929" style="text-decoration: none; color: inherit;">(+91) 9998173929</a>
+                    </p>
+                </div>
+            </div>
+            <div class="contact-item animate">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Location</h3>
+                    <p>Ahmedabad, India</p>
+                </div>
+            </div>
+        </div>
+        <div class="social-links-container animate">
+            <h3>Connect With Me</h3>
+            <div class="social-links">
+                <a href="https://github.com/jainambharvad9" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jainam-bharvad/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/jainambharvad9" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/jainam_bharwad_9" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

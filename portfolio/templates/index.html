@@ -57,66 +57,150 @@ Portfolio{% endblock %} {% block content %}
 <style>
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .project-image {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .project-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-  }
+
   .project-card {
-    min-height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    padding: 1.5rem;
+    height: auto;
+    min-height: 500px;
   }
-  @media (max-width: 900px) {
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1rem;
+    text-align: justify;
+    flex-grow: 1;
+  }
+
+  .project-card p strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .project-links {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  .btn.btn-sm {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn.btn-sm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+
+  @media (max-width: 768px) {
     .projects-container {
       grid-template-columns: 1fr;
       gap: 1.5rem;
+      padding: 0 0.5rem;
     }
-    .project-image img {
-      aspect-ratio: 16/10;
-    }
+
     .project-card {
-      min-height: 350px;
-      padding: 1rem;
+      padding: 1.25rem;
+      min-height: 450px;
+    }
+
+    .project-image {
+      height: 180px;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
   }
-  @media (max-width: 600px) {
+
+  @media (max-width: 480px) {
     .projects-container {
-      grid-template-columns: 1fr;
       gap: 1rem;
     }
-    .project-image img {
-      aspect-ratio: 16/12;
-    }
+
     .project-card {
-      min-height: 280px;
-      padding: 0.75rem;
+      padding: 1rem;
+      min-height: 400px;
     }
+
+    .project-image {
+      height: 160px;
+      margin-bottom: 1rem;
+    }
+
     .project-card h3 {
       font-size: 1.1rem;
+      margin-bottom: 0.75rem;
     }
+
     .project-card p {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn.btn-sm {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
     }
   }
 </style>
@@ -124,29 +208,164 @@ Portfolio{% endblock %} {% block content %}
 <section class="projects-section glass-effect animate">
   <h2>Featured Projects</h2>
   <div class="projects-container">
-    {% for project in projects %}
+    <!-- Project 1: Nature's - With Live Wild Life -->
     <div class="project-card animate">
-      {% if project.image %}
       <div class="project-image">
-        <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+        <img
+          src="media\projects\gir-park.jpg"
+          alt="Nature's - With Live Wild Life"
+        />
       </div>
-      {% else %}
-      <div class="project-image"></div>
-      {% endif %}
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
-      <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+      <h3>Nature's - With Live Wild Life</h3>
+      <p>
+        Nature's Wildlife Conservation Platform represents a comprehensive
+        digital ecosystem dedicated to preserving and promoting awareness of
+        natural habitats and wildlife diversity. This innovative web application
+        serves as a bridge connecting nature enthusiasts content.
+      </p>
+      <p><strong>Technologies:</strong> PHP, MySQL, JavaScript, CSS3, HTML5</p>
       <div class="project-links">
-        {% if project.link %}
-        <a href="{{ project.link }}" class="btn btn-sm" target="_blank"
+        <a
+          href="https://natures-lagacy.infy.uk/index.php?i=1"
+          class="btn btn-sm"
+          target="_blank"
           >View Project</a
         >
-        {% endif %}
       </div>
     </div>
-    {% empty %}
-    <p>No projects found.</p>
-    {% endfor %}
+
+    <!-- Project 2: In-House Real Estate Portal -->
+    <div class="project-card animate">
+      <div class="project-image">
+        <img src="media\projects\home.jpg" alt="In-House Real Estate Portal" />
+      </div>
+      <h3>In-House Real Estate Portal</h3>
+      <p>
+        The In-House Real Estate Portal is a sophisticated property management
+        ecosystem designed to revolutionize real estate operations through
+        cutting-edge technology and user-centric design.
+      </p>
+      <p>
+        <strong>Technologies:</strong> ASP.NET, SQL Server, C#, Entity Framework
+      </p>
+      <div class="project-links">
+        <a
+          href="https://github.com/jainambharvad9/Inhouse_project"
+          class="btn btn-sm"
+          target="_blank"
+          >View Project</a
+        >
+      </div>
+    </div>
+
+    <!-- Project 3: SonicTunes Music Player -->
+    <div class="project-card animate">
+      <div class="project-image">
+        <img
+          src="media\projects\sonic-tune.jpg"
+          alt="SonicTunes Music Player"
+        />
+      </div>
+      <h3>SonicTunes Music Player</h3>
+      <p>
+        SonicTunes represents the next generation of music streaming platforms,
+        delivering an unparalleled audio experience through innovative
+        technology and intuitive design.
+      </p>
+      <p>
+        <strong>Technologies:</strong> Laravel 11, MySQL, PHP 8, Vue.js,
+        Bootstrap
+      </p>
+      <div class="project-links">
+        <a
+          href="https://github.com/jainambharvad9/SonicTunes-Music-Player-Website"
+          class="btn btn-sm"
+          target="_blank"
+          >View Project</a
+        >
+      </div>
+    </div>
+
+    <!-- Project 4: Kicks & Crafts E-Commerce -->
+    <div class="project-card animate">
+      <div class="project-image">
+        <img
+          src="media\projects\kickkraft.jpg"
+          alt="Kicks & Crafts E-Commerce"
+        />
+      </div>
+      <h3>Kicks & Crafts – Nike Shoe E-Commerce</h3>
+      <p>
+        Kicks & Crafts represents the ultimate destination for premium Nike
+        footwear enthusiasts, combining cutting-edge e-commerce technology with
+        unparalleled shopping experience.
+      </p>
+      <p>
+        <strong>Technologies:</strong> PHP 8, MySQL, JavaScript, Razorpay API,
+        Bootstrap
+      </p>
+      <div class="project-links">
+        <a
+          href="https://kicksnstart-final.infy.uk/index.php"
+          class="btn btn-sm"
+          target="_blank"
+          >View Project</a
+        >
+      </div>
+    </div>
+
+    <!-- Project 5: Weather Detector -->
+    <div class="project-card animate">
+      <div class="project-image">
+        <img src="media\projects\wather-detactor.jpg" alt="Weather Detector" />
+      </div>
+      <h3>Weather Detector Application</h3>
+      <p>
+        Weather Detector stands as a sophisticated meteorological application
+        providing comprehensive real-time weather information and forecasting
+        capabilities for locations worldwide. This intelligent platform
+        leverages advanced weather APIs and data analytics to deliver accurate,
+        up-to-date atmospheric.
+      </p>
+      <p>
+        <strong>Technologies:</strong> Python, Django, OpenWeather API,
+        JavaScript, Chart.js
+      </p>
+      <div class="project-links">
+        <a
+          href="https://github.com/jainambharvad9/Weather-Detector"
+          class="btn btn-sm"
+          target="_blank"
+          >View Project</a
+        >
+      </div>
+    </div>
+
+    <!-- Project 6: Voice Assistant -->
+    <div class="project-card animate">
+      <div class="project-image">
+        <img src="media\projects\Voice_Assistant.jpeg" alt="Voice Assistant" />
+      </div>
+      <h3>AI-Powered Voice Assistant</h3>
+      <p>
+        The AI-Powered Voice Assistant represents a breakthrough in
+        human-computer interaction technology, revolutionizing how users engage
+        with digital systems through natural language processing and advanced
+        artificial intelligence.
+      </p>
+      <p>
+        <strong>Technologies:</strong> Python, SpeechRecognition, pyttsx3, NLTK,
+        TensorFlow
+      </p>
+      <div class="project-links">
+        <a
+          href="https://github.com/jainambharvad9/Python-Assistant"
+          class="btn btn-sm"
+          target="_blank"
+          >View Project</a
+        >
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

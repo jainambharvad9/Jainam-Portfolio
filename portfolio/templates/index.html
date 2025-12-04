@@ -11,12 +11,12 @@ Portfolio{% endblock %} {% block content %}
       modern technologies.
     </p>
     <div class="cta-buttons">
-      <a href="{% url 'contact' %}" class="btn btn-primary animate"
-        >Contact Me</a
-      >
-      <a href="{% url 'resume' %}" class="btn btn-secondary animate"
-        >View Resume</a
-      >
+      <a href="{% url 'contact' %}" class="btn btn-primary animate">
+        Contact Me
+      </a>
+      <a href="{% url 'resume' %}" class="btn btn-secondary animate">
+        View Resume
+      </a>
     </div>
   </div>
   <div class="hero-image animate">
@@ -124,6 +124,20 @@ Portfolio{% endblock %} {% block content %}
     font-weight: 600;
   }
 
+  /* List styling inside project cards (for ERP modules) */
+  .project-card ul {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .project-card ul li strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
   .project-links {
     margin-top: auto;
     padding-top: 1rem;
@@ -208,11 +222,13 @@ Portfolio{% endblock %} {% block content %}
 <section class="projects-section glass-effect animate">
   <h2>Featured Projects</h2>
   <div class="projects-container">
+    <!-- NEW Project: Office ERP System -->
+
     <!-- Project 1: Nature's - With Live Wild Life -->
     <div class="project-card animate">
       <div class="project-image">
         <img
-          src="media\projects\gir-park.jpg"
+          src="media/projects/gir-park.jpg"
           alt="Nature's - With Live Wild Life"
         />
       </div>
@@ -229,15 +245,16 @@ Portfolio{% endblock %} {% block content %}
           href="https://natures-lagacy.infy.uk/index.php?i=1"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
       </div>
     </div>
 
     <!-- Project 2: In-House Real Estate Portal -->
     <div class="project-card animate">
       <div class="project-image">
-        <img src="media\projects\home.jpg" alt="In-House Real Estate Portal" />
+        <img src="media/projects/home.jpg" alt="In-House Real Estate Portal" />
       </div>
       <h3>In-House Real Estate Portal</h3>
       <p>
@@ -253,8 +270,9 @@ Portfolio{% endblock %} {% block content %}
           href="https://github.com/jainambharvad9/Inhouse_project"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
       </div>
     </div>
 
@@ -262,7 +280,7 @@ Portfolio{% endblock %} {% block content %}
     <div class="project-card animate">
       <div class="project-image">
         <img
-          src="media\projects\sonic-tune.jpg"
+          src="media/projects/sonic-tune.jpg"
           alt="SonicTunes Music Player"
         />
       </div>
@@ -281,8 +299,9 @@ Portfolio{% endblock %} {% block content %}
           href="https://github.com/jainambharvad9/SonicTunes-Music-Player-Website"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
       </div>
     </div>
 
@@ -290,7 +309,7 @@ Portfolio{% endblock %} {% block content %}
     <div class="project-card animate">
       <div class="project-image">
         <img
-          src="media\projects\kickkraft.jpg"
+          src="media/projects/kickkraft.jpg"
           alt="Kicks & Crafts E-Commerce"
         />
       </div>
@@ -309,15 +328,16 @@ Portfolio{% endblock %} {% block content %}
           href="https://kicksnstart-final.infy.uk/index.php"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
       </div>
     </div>
 
     <!-- Project 5: Weather Detector -->
     <div class="project-card animate">
       <div class="project-image">
-        <img src="media\projects\wather-detactor.jpg" alt="Weather Detector" />
+        <img src="media/projects/wather-detactor.jpg" alt="Weather Detector" />
       </div>
       <h3>Weather Detector Application</h3>
       <p>
@@ -336,15 +356,16 @@ Portfolio{% endblock %} {% block content %}
           href="https://github.com/jainambharvad9/Weather-Detector"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
       </div>
     </div>
 
     <!-- Project 6: Voice Assistant -->
     <div class="project-card animate">
       <div class="project-image">
-        <img src="media\projects\Voice_Assistant.jpeg" alt="Voice Assistant" />
+        <img src="media/projects/Voice_Assistant.jpeg" alt="Voice Assistant" />
       </div>
       <h3>AI-Powered Voice Assistant</h3>
       <p>
@@ -362,8 +383,57 @@ Portfolio{% endblock %} {% block content %}
           href="https://github.com/jainambharvad9/Python-Assistant"
           class="btn btn-sm"
           target="_blank"
-          >View Project</a
         >
+          View Project
+        </a>
+      </div>
+    </div>
+    <div class="project-card animate">
+      <div class="project-image">
+        <img
+          src="media\projects\HD-wallpaper-erp.jpg"
+          alt="Office ERP System – Full Office Management"
+        />
+      </div>
+      <h3>Office ERP System – Full Office Management Suite</h3>
+      <p>
+        The Office ERP System is a complete office management platform that
+        centralizes day-to-day operations, teams, and resources into a single,
+        intuitive dashboard. It is designed to streamline internal processes,
+        improve transparency, and give management real-time visibility across
+        the entire organization.
+      </p>
+      <strong>Key Modules (5 Modules):</strong>
+      <ul>
+        <li>
+          <strong>HR & Attendance:</strong>
+        </li>
+        <li>
+          <strong>Project & Task Management:</strong>
+        </li>
+        <li>
+          <strong>Finance & Billing:</strong>
+        </li>
+        <li>
+          <strong>Inventory & Asset Management:</strong>
+        </li>
+        <li>
+          <strong>Admin & Reporting Panel:</strong>
+        </li>
+      </ul>
+      <p>
+        <strong>Technologies:</strong>
+        Laravel, PHP, MySQL, Bootstrap 5, JavaScript, jQuery
+      </p>
+      <div class="project-links">
+        <!-- Change this link to your live demo or repo -->
+        <a
+          href="https://officeerp.emailapp.cloud"
+          class="btn btn-sm"
+          target="_blank"
+        >
+          View ERP Details
+        </a>
       </div>
     </div>
   </div>
